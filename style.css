@@ -1,0 +1,54 @@
+body { text-align: center; font-family: Arial, sans-serif;}
+canvas { border: 2px solid black; background-color: #eaffd0;margin-top: 10px; }
+.controls-power-container { position: absolute; bottom: 10px; left: 10px; display: flex; align-items: center; position: relative; margin-top: 10px;}
+.controls-container { display: grid; grid-template-columns: repeat(3, 40px); gap: 3px; margin-right: 10px; }
+.direction-button { width: 40px; height: 40px; border-radius: 50%; background: rgba(0, 0, 0, 0.5); color: white; border: none; cursor: pointer; font-size: 1.2em; display: flex; align-items: center; justify-content: center; }
+.direction-button:active { background-color: rgba(0, 0, 0, 0.7); }
+.power-bar { width: 20px; height: 150px; background: #ccc; border-radius: 8px; overflow: hidden; margin-right: 10px; }
+.power-level { width: 100%; height: 0%; background: #e74c3c; transition: 0.1s; }
+.outcome { margin-top: 10px; font-size: 1em; position: relative; }
+.history-scoreboard-container { display: flex; justify-content: center; margin-top: 10px; }
+.history, .scoreboard { margin: 0 10px; text-align: left; max-width: 250px; font-size: 0.9em; /* Increased max-width and font size for table */ }
+.history h3, .scoreboard h3 { font-size: 1em; margin-top: 5px; margin-bottom: 3px; cursor: pointer; }
+.history ul, .scoreboard ul { margin-top: 0; padding-left: 20px; }
+#newGameButton { margin-top: 10px; padding: 6px 12px; font-size: 0.9em; cursor: pointer; }
+#gameOverDisplay { margin-top: 10px; font-size: 1.3em; color: red; font-weight: bold; display: none; }
+h1 { font-size: 1.3em; margin-bottom: 10px;}
+.collapsed-content { display: none; }
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* Scoreboard Table Styles */
+#scoreTable {
+    width: 100%;
+    border-collapse: collapse; Single border for table */
+    margin-top: 5px; /* Add some space above the table */
+    font-size: 0.9em; /* Slightly larger font for table */
+}
+
+#scoreTable th, #scoreTable td {
+    border: 1px solid #ddd; /* Light grey border for cells */
+    padding: 6px 8px; /* Comfortable padding for cells */
+    text-align: center; /* Center align text in cells */
+}
+
+#scoreTable th {
+    background-color: #f0f0f0; /* Light background for header */
+    font-weight: bold; /* Bold header text */
+}
+
+#scoreTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Very light grey for even rows */
+}
+
+#scoreTable tfoot {
+    font-weight: bold; /* Bold total row */
+}

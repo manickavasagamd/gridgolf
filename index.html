@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Golf</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class=game-container>
+	    <h1>Grid Golf</h1>
+		 <div class="hole-info" id="holeInfoDisplay">  <span id="holeNumberDisplay">Hole: 1</span>
+            <span id="holeParDisplay">Par: 4</span>
+        </div>
+		<canvas id="gameCanvas" width="360" height="360"></canvas>
+
+		<div class="outcome" id="outcomeDisplay">
+           Direction: None, Power: 0
+		</div>
+		<div class="controls-power-container">
+			<div class="controls-container" id="controls">
+				<button class="direction-button" id="NW">↖</button>
+				<button class="direction-button" id="N">⬆</button>
+				<button class="direction-button" id="NE">↗</button>
+				<button class="direction-button" id="W">⬅</button>
+				<div style="width: 40px; height: 40px;"></div>
+				<button class="direction-button" id="E">⮕</button>
+				<button class="direction-button" id="SW">↙</button>
+				<button class="direction-button" id="S">⬇</button>
+				<button class="direction-button" id="SE">↘</button>
+			</div>
+			<div class="power-bar" id="powerBar">
+				<div class="power-level" id="powerLevel"></div>
+			</div>
+
+		</div>
+
+            <div class="history-scoreboard-container">
+				<div class="history">
+					<h3 onclick="toggleSection('historyContent')">Game History</h3>
+					<div id="historyContent">
+						<ul id="historyList"></ul>
+					</div>
+				</div>
+			    <div class="scoreboard">
+					<h3 onclick="toggleSection('scoreContent')">Scoreboard</h3>
+					<div id="scoreContent">
+						<div id="scoreTable"></div>
+						<div id="currentScore"></div>
+					</div>
+			    </div>
+		     </div>
+        </div>
+		<div id="gameOverDisplay">Game Over!</div>
+		<button id="newGameButton">New Game</button>
+
+
+	<script src="script.js"></script>
+</body>
+</html>
