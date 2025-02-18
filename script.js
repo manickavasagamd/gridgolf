@@ -14,7 +14,8 @@ const canvas = document.getElementById("gameCanvas");
         const scoreTableDiv = document.getElementById('scoreTable'); // Score table container
 		const holeNumberDisplay = document.getElementById("holeNumberDisplay"); // Get the hole number span
 		const holeParDisplay = document.getElementById("holeParDisplay");     // Get the hole par span
-
+        const howToPlayButton = document.getElementById('howToPlayBtn'); // Get How to Play button
+        const howToPlayGuide = document.getElementById('howToPlayGuide'); // Get guide div
 
         const gridSize = 12;
         const cellSize = 20;
@@ -149,7 +150,9 @@ const canvas = document.getElementById("gameCanvas");
             const sectionContent = document.getElementById(sectionId);
             sectionContent.classList.remove('collapsed-content');
         }
-
+        function toggleHowToPlay() {
+            howToPlayGuide.style.display = howToPlayGuide.style.display === 'none' ? 'block' : 'none';
+        }
 
         generateHoles();
         generateObstacles();
@@ -159,7 +162,7 @@ const canvas = document.getElementById("gameCanvas");
 
         // Initially collapse history and scoreboard content
         toggleSection('historyContent');
-        toggleSection('scoreContent');
+        //toggleSection('scoreContent');
 
 
         // Direction Buttons Event Listeners
@@ -174,7 +177,8 @@ const canvas = document.getElementById("gameCanvas");
 
         // New Game Button Event Listener
         newGameButton.addEventListener("click", resetGame);
-
+        howToPlayBtn.addEventListener('click', toggleHowToPlay);
+		
         function getRandomPower() {
             return Math.floor(Math.random() * 6) + 1;
         }
