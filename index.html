@@ -8,52 +8,92 @@
 </head>
 <body>
     <div class=game-container>
-	    <h1>Grid Golf</h1>
-		 <div class="hole-info" id="holeInfoDisplay">  <span id="holeNumberDisplay">Hole: 1</span>
-            <span id="holeParDisplay">Par: 4</span>
-        </div>
-		<canvas id="gameCanvas" width="360" height="360"></canvas>
-
-		<div class="outcome" id="outcomeDisplay">
-           Direction: None, Power: 0
+		<div class="column">
+			<h1>Grid Golf</h1>
+			 <div class="hole-info" id="holeInfoDisplay">  <span id="holeNumberDisplay">Hole: 1</span>
+				<span id="holeParDisplay">Par: 4</span>
+			 </div>
+			<canvas id="gameCanvas" width="360" height="360"></canvas>
 		</div>
-		<div class="controls-power-container">
-			<div class="controls-container" id="controls">
-				<button class="direction-button" id="NW">↖</button>
-				<button class="direction-button" id="N">⬆</button>
-				<button class="direction-button" id="NE">↗</button>
-				<button class="direction-button" id="W">⬅</button>
-				<div style="width: 40px; height: 40px;"></div>
-				<button class="direction-button" id="E">⮕</button>
-				<button class="direction-button" id="SW">↙</button>
-				<button class="direction-button" id="S">⬇</button>
-				<button class="direction-button" id="SE">↘</button>
+		<div class="column">
+			<div class="outcome" id="outcomeDisplay">
+			   Direction: None, Power: 0
 			</div>
-			<div class="power-bar" id="powerBar">
-				<div class="power-level" id="powerLevel"></div>
-			</div>
+			<div class="controls-power-container">
+				<div class="controls-container" id="controls">
+					<button class="direction-button" id="NW">↖</button>
+					<button class="direction-button" id="N">⬆</button>
+					<button class="direction-button" id="NE">↗</button>
+					<button class="direction-button" id="W">⬅</button>
+					<div style="width: 40px; height: 40px;"></div>
+					<button class="direction-button" id="E">⮕</button>
+					<button class="direction-button" id="SW">↙</button>
+					<button class="direction-button" id="S">⬇</button>
+					<button class="direction-button" id="SE">↘</button>
+				</div>
+				<div class="power-bar" id="powerBar">
+					<div class="power-level" id="powerLevel"></div>
+				</div>
 
-		</div>
+		     </div>
 
             <div class="history-scoreboard-container">
-				<div class="history">
-					<h3 onclick="toggleSection('historyContent')">Game History</h3>
-					<div id="historyContent">
-						<ul id="historyList"></ul>
-					</div>
-				</div>
-			    <div class="scoreboard">
+				<div class="scoreboard">
 					<h3 onclick="toggleSection('scoreContent')">Scoreboard</h3>
 					<div id="scoreContent">
 						<div id="scoreTable"></div>
 						<div id="currentScore"></div>
 					</div>
 			    </div>
+				<div class="history">
+					<h3 onclick="toggleSection('historyContent')">Game History</h3>
+					<div id="historyContent">
+						<ul id="historyList"></ul>
+					</div>
+				</div>
 		     </div>
         </div>
+	</div>
 		<div id="gameOverDisplay">Game Over!</div>
 		<button id="newGameButton">New Game</button>
-
+        <button id="howToPlayBtn">How to Play</button>
+            <div id="howToPlayGuide">
+                <h3>How to Play Grid Golf</h3>
+                <p>Welcome to Grid Golf! The goal is to get golf ball into each of the holes in as few swings as possible.</p>
+                <h4>Game Objective</h4>
+                <p>Get the ball into each hole using the fewest strokes possible.</p>
+                <h4>Course</h4>
+                <ol>
+                    <li><strong>Golf course</strong>  have 3 holes. Hole need to be complete one after another.</li>
+                    <li><strong>Grid:</strong> The game is played on a grid. Your ball and the holes are positioned on this grid.</li>
+                    <li><strong>Obstacles:</strong> Watch out for obstacles like rocks, bushes, and sand traps! Hitting an obstacle will stop your ball. </li>
+                 </ol>
+				<h4>Controls</h4>
+                <ol>
+                    <li><strong>Direction Buttons: </strong>  Use the direction buttons (↖, ⬆, ↗, ⬅, ⮕, ↙, ⬇, ↘) to choose the direction you want to hit the ball.</li>
+                    <li><strong>Power: </strong> After choosing a direction, the game will randomly determine the power of your shot. The power level is indicated by the red bar on the side.</li>
+                    <li><strong>Ball Movement: </strong> The ball moves on the grid based on the chosen direction and power. </li>
+                       
+                    
+                </ol>
+				<h4>Scoring</h4>
+				 <ol>
+                    <li><strong>Par:</strong> Each hole has a "par" number, which is the expected number of swings to complete the hole.</li>
+                    <li><strong>Score Terms:</strong> 
+						<ul>
+							<li><strong>Better than Par:</strong> "Birdie", "Eagle", "Albatross" (lower score is better!)</li>
+						    <li><strong>Equal to Par:</strong> "Par"</li>
+							<li><strong>Worse than Par:</strong> "Bogey", "Double Bogey", "Triple Bogey", "Bad Putter"</li>
+						</ul>
+								
+					</li>
+                    <li><strong>Total Score:</strong> Your total score is the sum of your swings for all holes. Try to get the lowest total score!  (high score is worst) </li>
+                 </ol>
+				<h4>How to Win:</h4>
+				<p>Complete all holes with the lowest possible total score! Good luck and have fun playing Grid Golf!</p>
+                <p>Good luck and have fun!</p>
+		        <p style="font-size: 12px;"> Created by Manickavasagam Deivanayagam</p>
+            </div>
 
 	<script src="script.js"></script>
 </body>
