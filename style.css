@@ -1,209 +1,286 @@
 body {
-	text-align: center;
-	font-family: Arial, sans-serif;
-}
-
-canvas {
-	border: 2px solid black;
-	background-color: #eaffd0;
-	margin-top: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0fbe7; /* Light Green Background */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .game-container {
-	display: flex;
-	flex-wrap: wrap;
-	justify-items: start;
-	margin-right: 20px;
-	background-color: #f8f8f8;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex; /* Enable flexbox for game container */
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    max-width: 900px; /* Maximum width for the game container */
+    margin: 20px;
+    align-items: flex-start; /* Align columns to the top */
 }
 
 .column {
-	flex: 1;
-	align-items: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px; /* Spacing between columns */
+}
+
+canvas {
+    border: 2px solid black;
+    background-color: #eaffd0;
+    margin-top: 10px;
+    display: block; /* Ensure canvas is a block-level element */
 }
 
 .controls-power-container {
-	position: absolute;
-	bottom: 10px;
-	left: 10px;
-	display: flex;
-	align-items: center;
-	position: relative;
-	margin-top: 10px;
+    display: flex;
+    align-items: center;
+    position: relative; /* Remove absolute positioning */
+    margin-top: 10px;
+    flex-direction: column; /* Stack controls and power bar vertically */
 }
 
 .controls-container {
-	display: grid;
-	grid-template-columns: repeat(3, 40px);
-	gap: 3px;
-	margin-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 50px); /* Larger buttons */
+    gap: 5px; /* Increased gap */
+    margin-bottom: 10px; /* Spacing between buttons and power bar */
 }
 
 .direction-button {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background: rgba(0, 0, 0, 0.5);
-	color: white;
-	border: none;
-	cursor: pointer;
-	font-size: 1.2em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7); /* Darker buttons */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em; /* Larger font */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 .direction-button:active {
-	background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
+
 .power-bar {
-	width: 20px;
-	height: 150px;
-	background: #ccc;
-	border-radius: 8px;
-	overflow: hidden;
-	margin-right: 10px;
+    width: 25px; /* Wider power bar */
+    height: 170px; /* Taller power bar */
+    background: #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 10px;
 }
 
 .power-level {
-	width: 100%;
-	height: 0%;
-	background: #e74c3c;
-	transition: 0.1s;
+    width: 100%;
+    height: 0%;
+    background: #e74c3c;
+    transition: height 0.1s ease;
+    border-radius: 12px;
 }
 
 .outcome {
-	margin-top: 10px;
-	font-size: 1em;
-	position: relative;
-	right: 220px;
+    margin-top: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #555; /* Dark grey color */
+    position: relative; /* Remove absolute positioning from outcome */
+    right: auto; /* Reset right positioning if it was set */
 }
 
+
 .history-scoreboard-container {
-	display: flex;
-	justify-content: left;
-	margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%; /* Take full width of column */
 }
 
 .history,
 .scoreboard {
-	margin: 0 10px;
-	text-align: left;
-	max-width: 250px;
-	font-size: 0.9em;
-	/* Increased max-width and font size for table */
+    margin-bottom: 20px; /* Spacing between history/scoreboard sections */
+    text-align: left;
+    width: 100%;
 }
 
 .history h3,
 .scoreboard h3 {
-	font-size: 1em;
-	margin-top: 5px;
-	margin-bottom: 3px;
-	cursor: pointer;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: #333; /* Darker heading color */
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
 }
 
 .history ul,
-.scoreboard ul {
-	margin-top: 0;
-	padding-left: 20px;
+.scoreboard table {
+    margin-top: 0;
+    padding-left: 0;
+    list-style-type: none;
+    width: 100%;
 }
 
-#newGameButton {
-	margin-top: 10px;
-	padding: 6px 12px;
-	font-size: 0.9em;
-	cursor: pointer;
+#newGameButton,
+#howToPlayBtn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#newGameButton:hover,
+#howToPlayBtn:hover {
+    background-color: #2980b9;
 }
 
 #gameOverDisplay {
-	margin-top: 10px;
-	font-size: 1.3em;
-	color: red;
-	font-weight: bold;
-	display: none;
+    margin-top: 20px;
+    font-size: 1.6em;
+    color: #e74c3c;
+    font-weight: bold;
+    display: none;
 }
 
 h1 {
-	font-size: 1.3em;
-	margin-bottom: 10px;
+    font-size: 2.2em;
+    margin-bottom: 5px;
+    color: #2c3e50;
 }
 
 .collapsed-content {
-	display: none;
+    display: none;
 }
 
+/* Hole Info Display Styling */
+.hole-info {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
+}
+
+.hole-info span {
+    margin: 0 15px;
+}
 
 /* Scoreboard Table Styles */
 #scoreTable {
-	width: 100%;
-	border-collapse: collapse;
-	Single border for table */ margin-top: 5px;
-	/* Add some space above the table */
-	font-size: 0.9em;
-	/* Slightly larger font for table */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: 1em;
+    border: 1px solid #ddd; /* Add border to the table itself */
 }
 
 #scoreTable th,
 #scoreTable td {
-	border: 1px solid #ddd;
-	/* Light grey border for cells */
-	padding: 6px 8px;
-	/* Comfortable padding for cells */
-	text-align: center;
-	/* Center align text in cells */
+    border: 1px solid #ddd;
+    padding: 8px 10px; /* Increased padding */
+    text-align: center;
 }
 
 #scoreTable th {
-	background-color: #f0f0f0;
-	/* Light background for header */
-	font-weight: bold;
-	/* Bold header text */
+    background-color: #f0f0f0;
+    font-weight: bold;
+    color: #555;
 }
 
 #scoreTable tbody tr:nth-child(even) {
-	background-color: #f9f9f9;
-	/* Very light grey for even rows */
+    background-color: #f9f9f9;
 }
 
 #scoreTable tfoot {
-	font-weight: bold;
-	/* Bold total row */
+    font-weight: bold;
+    background-color: #eee; /* Light grey for footer */
 }
 
-/* Styles for How to Play Guide */
-        #howToPlayBtn {
-            margin-top: 10px;
-            padding: 8px 15px;
-            cursor: pointer;
-            background-color: #f0f0f0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+/* How to Play Guide Styles */
+#howToPlayGuide {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position to stay in viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the guide */
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it's on top of other content */
+    text-align: left;
+    max-height: 80vh; /* Max height relative to viewport height */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    width: 80%; /* or a fixed width like 600px */
+    max-width: 700px;
+}
 
-        #howToPlayGuide {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-            display: none; /* Initially hidden */
-            max-width: 400px; /* Adjust as needed */
-            text-align: left;
-            line-height: 1.6;
-            font-size: 14px;
-        }
+#howToPlayGuide h3 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
 
-        #howToPlayGuide h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #333;
-        }
+#howToPlayGuide h4 {
+    color: #3498db;
+    font-size: 1.4em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 
-        #howToPlayGuide p {
-            margin-bottom: 10px;
-        }
+#howToPlayGuide p,
+#howToPlayGuide li {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#howToPlayGuide ol {
+    padding-left: 25px;
+}
+
+#howToPlayGuide #closeGuideBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: #777;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+#overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/opacity */
+    z-index: 999; /* Below the guide but above everything else */
+}
