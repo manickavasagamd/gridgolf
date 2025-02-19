@@ -37,9 +37,9 @@ canvas {
 .controls-power-container {
     display: flex;
     align-items: center;
-    position: relative; /* Remove absolute positioning */
+    position: relative;
     margin-top: 10px;
-    flex-direction: column; /* Stack controls and power bar vertically */
+    flex-direction: row; /* Arrange controls and power bar in a row */
 }
 
 .controls-container {
@@ -47,6 +47,7 @@ canvas {
     grid-template-columns: repeat(3, 50px); /* Larger buttons */
     gap: 5px; /* Increased gap */
     margin-bottom: 10px; /* Spacing between buttons and power bar */
+    margin-right: 10px; /* Add some spacing between controls and power bar */
 }
 
 .direction-button {
@@ -70,12 +71,13 @@ canvas {
 
 
 .power-bar {
-    width: 25px; /* Wider power bar */
-    height: 170px; /* Taller power bar */
+    width: 20px; /* Reduced width */
+    height: 140px; /* Reduced height */
     background: #ddd;
     border-radius: 12px;
     overflow: hidden;
     margin-top: 10px;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
 }
 
 .power-level {
