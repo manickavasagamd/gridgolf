@@ -28,6 +28,10 @@ body {
 }
 
 canvas {
+    width: 90vw;
+    height: 90vw;
+    max-width: 400px; /* Example max width, adjust as needed */
+    max-height: 400px; /* Example max height */
     border: 2px solid black;
     background-color: #eaffd0;
     margin-top: 10px;
