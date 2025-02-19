@@ -51,24 +51,69 @@ const canvas = document.getElementById("gameCanvas");
         }
 
 
-        function generateObstacles() {
-            obstacles = [];
-            for (let i = 0; i < 7; i++) {
-                obstacles.push({ x: Math.floor(Math.random() * gridSize) * cellSize,
-                                            y: Math.floor(Math.random() * gridSize) * cellSize,
-                                            type: "rock" });
+       function generateObstacles() {
+    obstacles = [];
+    const holePositions = holes.map(hole => ({ // Get positions of all holes
+        x: Math.floor(hole.x / cellSize) * cellSize,
+        y: Math.floor(hole.y / cellSize) * cellSize
+    }));
+
+    for (let i = 0; i < 7; i++) {
+        let obstaclePosition;
+        let overlap;
+        do {
+            overlap = false;
+            obstaclePosition = {
+                x: Math.floor(Math.random() * gridSize) * cellSize,
+                y: Math.floor(Math.random() * gridSize) * cellSize
+            };
+            for (let holePos of holePositions) { // Check for overlap with each hole
+                if (obstaclePosition.x === holePos.x && obstaclePosition.y === holePos.y) {
+                    overlap = true;
+                    break;
+                }
             }
-            for (let i = 0; i < 3; i++) {
-                obstacles.push({ x: Math.floor(Math.random() * gridSize) * cellSize,
-                                            y: Math.floor(Math.random() * gridSize) * cellSize,
-                                            type: "bush" });
+        } while (overlap); // Keep generating until no overlap with holes
+
+        obstacles.push({ ...obstaclePosition, type: "rock" });
+    }
+    for (let i = 0; i < 3; i++) {
+        let obstaclePosition;
+        let overlap;
+        do {
+            overlap = false;
+            obstaclePosition = {
+                x: Math.floor(Math.random() * gridSize) * cellSize,
+                y: Math.floor(Math.random() * gridSize) * cellSize
+            };
+            for (let holePos of holePositions) { // Check for overlap with each hole
+                if (obstaclePosition.x === holePos.x && obstaclePosition.y === holePos.y) {
+                    overlap = true;
+                    break;
+                }
             }
-            for (let i = 0; i < 2; i++) {
-                obstacles.push({ x: Math.floor(Math.random() * (gridSize - 1)) * cellSize,
-                                            y: Math.floor(Math.random() * (gridSize - 1)) * cellSize,
-                                            type: "sand" });
+        } while (overlap); // Keep generating until no overlap with holes
+        obstacles.push({ ...obstaclePosition, type: "bush" });
+    }
+    for (let i = 0; i < 2; i++) {
+        let obstaclePosition;
+        let overlap;
+        do {
+            overlap = false;
+            obstaclePosition = {
+                x: Math.floor(Math.random() * (gridSize - 1)) * cellSize,
+                y: Math.floor(Math.random() * (gridSize - 1)) * cellSize
+            };
+            for (let holePos of holePositions) { // Check for overlap with each hole
+                if (obstaclePosition.x === holePos.x && obstaclePosition.y === holePos.y) {
+                    overlap = true;
+                    break;
+                }
             }
-        }
+        } while (overlap); // Keep generating until no overlap with holes
+        obstacles.push({ ...obstaclePosition, type: "sand" });
+    }
+}
 
         function drawObstacles() {
             obstacles.forEach(obstacle => {
