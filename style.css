@@ -236,7 +236,13 @@ h1 {
     width: 80%; /* or a fixed width like 600px */
     max-width: 700px;
 }
-
+.close-button {
+    position: absolute; /* Position it relative to the howToPlayGuide div */
+    top: 10px;        /* Distance from the top of the div */
+    right: 10px;       /* Distance from the right of the div */
+    cursor: pointer;   /* Change cursor to pointer on hover to indicate it's clickable */
+    font-size: 1.2em;  /* Make the 'X' a bit larger */
+}
 #howToPlayGuide h3 {
     color: #2c3e50;
     font-size: 1.8em;
