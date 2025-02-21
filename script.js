@@ -198,12 +198,13 @@ const canvas = document.getElementById("gameCanvas");
         function toggleHowToPlay() {
             howToPlayGuide.style.display = howToPlayGuide.style.display === 'none' ? 'block' : 'none';
         }
-
+        window.addEventListener('load', setCanvasSize);
+        window.addEventListener('resize', setCanvasSize);
         generateHoles();
         generateObstacles();
         gameLoop();
         updateScoreboard();
-		updateHoleDisplay();
+	updateHoleDisplay();
 
         // Initially collapse history and scoreboard content
         toggleSection('historyContent');
@@ -406,6 +407,24 @@ const canvas = document.getElementById("gameCanvas");
 			holeNumberDisplay.textContent = `Hole: ${currentHole + 1}`;
 			holeParDisplay.textContent = `Par: ${holes[currentHole].par}`;
         }
+
+function setCanvasSize() {
+    // 1. Get the computed width from CSS:
+    const computedStyle = window.getComputedStyle(canvas);
+    const canvasWidthCSS = computedStyle.width;
+
+    // Convert CSS width (like "90vw" or "300px") to a number (pixels):
+    const canvasPixelWidth = parseFloat(canvasWidthCSS);
+
+    // 2. Set canvas width and height in JavaScript to the computed width:
+    canvas.width = canvasPixelWidth;
+    canvas.height = canvasPixelWidth; // Keep it square
+
+    // **Important:** After resizing the canvas, you might need to redraw the game!
+   resetGame();
+}
+
+
 (function() {
   let gtagScript = document.createElement('script');
   gtagScript.async = true;
