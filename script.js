@@ -406,3 +406,16 @@ const canvas = document.getElementById("gameCanvas");
 			holeNumberDisplay.textContent = `Hole: ${currentHole + 1}`;
 			holeParDisplay.textContent = `Par: ${holes[currentHole].par}`;
         }
+(function() {
+  let gtagScript = document.createElement('script');
+  gtagScript.async = true;
+  gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-1BVNE4G40G";
+  document.head.appendChild(gtagScript);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', 'G-1BVNE4G40G');
+})();
