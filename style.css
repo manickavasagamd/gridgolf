@@ -81,6 +81,7 @@ canvas {
     border-radius: 12px;
     overflow: hidden;
     margin-top: 10px;
+    margin-right: 5px;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2); /* Added subtle shadow */
 }
 
@@ -139,6 +140,7 @@ canvas {
 #newGameButton,
 #howToPlayBtn {
     margin-top: 20px;
+    margin-left: 5px;
     padding: 10px 15px;
     font-size: 1em;
     cursor: pointer;
